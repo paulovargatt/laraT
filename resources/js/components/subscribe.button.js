@@ -1,0 +1,3 @@
+Vue.component('subscribe-button', {
+
+});
