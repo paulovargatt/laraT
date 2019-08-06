@@ -44,17 +44,16 @@
                                         <p class="text-center">
                                             {{$channel->description}}
                                         </p>
-
-                                        <div class="text-center">
-                                           <subscribe-button  inline-template>
-                                               <button class="btn btn-danger">
-                                                   Subscribe
-                                               </button>
-                                           </subscribe-button>
-                                        </div>
                                     </div>
                                     @endif
 
+                                <div class="text-center">
+                                    <subscribe-button  inline-template :channel="{{$channel}}" :initial-subscriptions="{{$channel->subscriptions}}">
+                                        <button @click="toggleSubscription"  class="btn btn-danger">
+                                            @{{owner ? '' : subscribed ? 'Unsubscribe' : 'Subscribe' }} @{{count}} @{{owner ? 'subscribers' : '' }}
+                                        </button>
+                                    </subscribe-button>
+                                </div>
 
                                     <input onchange="document.getElementById('update-channel-form').submit()"
                                            style="display: none" type="file" name="image" id="image">
